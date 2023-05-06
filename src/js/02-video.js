@@ -15,5 +15,10 @@ if (savedTime) {
 player.on('timeupdate', throttle(onPlayerStart, 1000));
 
 function onPlayerStart(e) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify({ seconds: e.seconds }));
+  localStorage.setItem(
+    STORAGE_KEY,
+    JSON.stringify({
+      seconds: e.seconds,
+    })
+  );
 }
