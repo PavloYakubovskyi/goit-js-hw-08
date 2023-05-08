@@ -10,10 +10,10 @@ const idPlayer = new Vimeo.Player('vimeo-player');
 const savedTime = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
 if (savedTime) {
-  player.setCurrentTime(savedTime.seconds);
+  idPlayer.setCurrentTime(savedTime.seconds);
 }
 
-player.on('timeupdate', throttle(onPlayerStart, 1000));
+idPlayer.on('timeupdate', throttle(onPlayerStart, 1000));
 
 function onPlayerStart(e) {
   localStorage.setItem(
