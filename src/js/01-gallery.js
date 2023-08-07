@@ -21,7 +21,7 @@ function createPictureCards(galleryItems) {
     .join('');
 }
 
-let lightbox = new SimpleLightbox('.gallery a', {
+const lightbox = new SimpleLightbox('.gallery a', {
   // captions: true,
   captionDelay: 250,
   // captionsData: title,
