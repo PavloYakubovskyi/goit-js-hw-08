@@ -7,8 +7,8 @@ const formData = localStorage.getItem(STORAGE_KEY)
 
 const refs = {
   form: document.querySelector('.feedback-form'),
-  inputEmail: document.querySelector('input'),
-  textarea: document.querySelector('.feedback-form textarea'),
+  inputEmail: document.querySelector('[name="email"]'),
+  textarea: document.querySelector('[name="message"]'),
 };
 
 if (localStorage.getItem(STORAGE_KEY)) {
@@ -19,16 +19,16 @@ refs.form.addEventListener('submit', onFormSubmit);
 
 function onFormSubmit(e) {
   e.preventDefault();
-  if (
-    refs.inputEmail.value.trim() === '' ||
-    refs.textarea.value.trim() === ''
-  ) {
+  if (refs.inputEmail.value.trim() == '' || refs.textarea.value.trim() == '') {
     throw new Error('Please fill all fields of the form');
   } else {
     const savedData = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    console.log('test:');
     console.log(savedData);
     e.currentTarget.reset();
     localStorage.removeItem(STORAGE_KEY);
+    formData.message = '';
+    formData.email = '';
   }
 }
 
