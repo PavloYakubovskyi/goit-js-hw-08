@@ -19,8 +19,11 @@ refs.form.addEventListener('submit', onFormSubmit);
 
 function onFormSubmit(e) {
   e.preventDefault();
-  if (refs.inputEmail.value.trim() == '' || refs.textarea.value.trim() == '') {
-    throw new Error('Please fill all fields of the form');
+  if (
+    refs.inputEmail.value.trim() === '' ||
+    refs.textarea.value.trim() === ''
+  ) {
+    alert('Please fill all fields of the form');
   } else {
     const savedData = JSON.parse(localStorage.getItem(STORAGE_KEY));
     console.log('test:');
